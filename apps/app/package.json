@@ -1,0 +1,19 @@
+{
+	"name": "app",
+	"version": "0.0.0",
+	"private": true,
+	"main": "dist/main.js",
+	"scripts": {
+		"build": "tsc",
+		"dev": "electron .",
+		"start": "electron .",
+		"check-types": "tsc --noEmit"
+	},
+	"dependencies": {
+		"electron": "^33.0.0"
+	},
+	"devDependencies": {
+		"@repo/typescript-config": "workspace:*",
+		"typescript": "5.9.2"
+	}
+}
