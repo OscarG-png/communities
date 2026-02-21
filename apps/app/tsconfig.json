@@ -1,9 +1,12 @@
 {
-	"extends": "@repo/typescript-config/base.json",
+	"extends": "../../packages/typescript-config/base.json",
 	"compilerOptions": {
 		"outDir": "dist",
-		"module": "NodeNext",
-		"target": "ES2022"
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"target": "ES2022",
+		"jsx": "react-jsx",
+		"noEmit": true
 	},
-	"include": ["*.ts"]
+	"include": ["src", "electron"]
 }

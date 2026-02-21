@@ -2,19 +2,29 @@
 	"name": "app",
 	"version": "0.0.0",
 	"private": true,
-	"main": "dist/main.js",
+	"main": "dist-electron/main/index.js",
+	"type": "module",
 	"scripts": {
-		"build": "tsc",
-		"dev": "electron .",
-		"start": "electron .",
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
 		"check-types": "tsc --noEmit"
 	},
 	"dependencies": {
-		"electron": "^33.0.0"
+		"electron": "^33.0.0",
+		"react": "^19.2.4",
+		"react-dom": "^19.2.4"
 	},
 	"devDependencies": {
+		"@repo/biome-config": "workspace:*",
 		"@repo/typescript-config": "workspace:*",
+		"@tanstack/router-plugin": "^1.162.1",
+		"@types/react": "^19.2.2",
+		"@types/react-dom": "^19.2.2",
+		"@vitejs/plugin-react": "^5.1.4",
 		"typescript": "6.0.0-beta",
-		"@repo/biome-config": "workspace:*"
+		"vite": "^7.3.1",
+		"vite-plugin-electron": "^0.29.0",
+		"vite-plugin-electron-renderer": "^0.14.6"
 	}
 }

@@ -7,8 +7,8 @@
 		"access": "public"
 	},
 	"exports": {
-		"./base.json": "./base.json",
-		"./react.json": "./react.json"
+		"./base": "./base.json",
+		"./react": "./react.json"
 	},
 	"scripts": {
 		"build": "biome format --write .",
