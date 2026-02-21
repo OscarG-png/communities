@@ -2,7 +2,7 @@
 	"extends": "@repo/typescript-config/base.json",
 	"compilerOptions": {
 		"outDir": "dist",
-		"module": "commonjs",
+		"module": "NodeNext",
 		"target": "ES2022"
 	},
 	"include": ["*.ts"]
