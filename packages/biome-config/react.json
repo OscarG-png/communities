@@ -1,0 +1,21 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.3.8/schema.json",
+	"root": false,
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"correctness": {
+				"noChildrenProp": "error",
+				"useExhaustiveDependencies": "warn",
+				"useHookAtTopLevel": "error",
+				"useJsxKeyInIterable": "error"
+			},
+			"security": {
+				"noDangerouslySetInnerHtmlWithChildren": "error"
+			}
+		}
+	},
+	"javascript": {
+		"globals": ["__DEV__", "global", "fetch"]
+	}
+}
