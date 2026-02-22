@@ -1,7 +1,7 @@
-import { app, BrowserWindow, shell, ipcMain } from 'electron';
-import type { WebContents } from 'electron';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import type { WebContents } from 'electron';
+import { app, BrowserWindow, ipcMain, shell } from 'electron';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -16,20 +16,6 @@ const ALLOWED_ORIGINS = new Set([
 	'http://127.0.0.1:5173',
 	'file://',
 ]);
-
-function isAllowedSender(webContents: Electron.WebContents): boolean {
-	const url = webContents.getURL();
-	try {
-		const parsed = new URL(url);
-		return (
-			parsed.origin === 'http://localhost:5173' ||
-			parsed.origin === 'http://127.0.0.1:5173' ||
-			parsed.protocol === 'file:'
-		);
-	} catch {
-		return false;
-	}
-}
 
 function createWindow(): void {
 	const win = new BrowserWindow({
@@ -72,10 +58,4 @@ app.on('web-contents-created', (_event, contents) => {
 
 app.whenReady().then(() => {
 	createWindow();
-
-	// Example: only add this when you actually need a channel
-	ipcMain.handle('my-channel', (event) => {
-		if (!isAllowedSender(event.sender)) return null;
-		// ... do work, return result
-	});
 });

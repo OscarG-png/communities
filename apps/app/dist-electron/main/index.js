@@ -1,6 +1,6 @@
-import { app, shell, ipcMain, BrowserWindow } from "electron";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { app, shell, BrowserWindow } from "electron";
 const __dirname$1 = path.dirname(fileURLToPath(import.meta.url));
 process.env.APP_ROOT = path.join(__dirname$1, "../..");
 const RENDERER_DIST = path.join(process.env.APP_ROOT, "dist");
@@ -13,15 +13,6 @@ const ALLOWED_ORIGINS = /* @__PURE__ */ new Set([
   "http://127.0.0.1:5173",
   "file://"
 ]);
-function isAllowedSender(webContents) {
-  const url = webContents.getURL();
-  try {
-    const parsed = new URL(url);
-    return parsed.origin === "http://localhost:5173" || parsed.origin === "http://127.0.0.1:5173" || parsed.protocol === "file:";
-  } catch {
-    return false;
-  }
-}
 function createWindow() {
   const win = new BrowserWindow({
     width: 800,
@@ -58,7 +49,4 @@ app.on("web-contents-created", (_event, contents) => {
 });
 app.whenReady().then(() => {
   createWindow();
-  ipcMain.handle("my-channel", (event) => {
-    if (!isAllowedSender(event.sender)) return null;
-  });
 });

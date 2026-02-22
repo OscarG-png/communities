@@ -19,5 +19,7 @@
 	},
 	"search.exclude": {
 		"**/routeTree.gen.ts": true
-	}
+	},
+	// this one is kind of optional honestly, might get rid of it
+	"css.lint.unknownAtRules": "ignore"
 }
