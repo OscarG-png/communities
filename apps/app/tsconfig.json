@@ -6,7 +6,10 @@
 		"moduleResolution": "bundler",
 		"target": "ES2022",
 		"jsx": "react-jsx",
-		"noEmit": true
+		"noEmit": true,
+		"paths": {
+			"@/*": ["./src/*"]
+		}
 	},
 	"include": ["src", "electron"]
 }

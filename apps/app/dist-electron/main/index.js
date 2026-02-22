@@ -8,18 +8,18 @@ const VITE_DEV_SERVER_URL = process.env.VITE_DEV_SERVER_URL;
 const preload = path.join(__dirname$1, "../preload/index.mjs");
 const indexHtml = path.join(RENDERER_DIST, "index.html");
 function createWindow() {
-	const win = new BrowserWindow({
-		width: 800,
-		height: 600,
-		webPreferences: {
-			preload,
-		},
-	});
-	if (VITE_DEV_SERVER_URL) {
-		win.loadURL(VITE_DEV_SERVER_URL);
-		win.webContents.openDevTools();
-	} else {
-		win.loadFile(indexHtml);
-	}
+  const win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      preload
+    }
+  });
+  if (VITE_DEV_SERVER_URL) {
+    win.loadURL(VITE_DEV_SERVER_URL);
+    win.webContents.openDevTools();
+  } else {
+    win.loadFile(indexHtml);
+  }
 }
 app.whenReady().then(createWindow);

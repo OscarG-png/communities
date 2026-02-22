@@ -7,6 +7,7 @@
 	"typescript.tsdk": "node_modules/typescript/lib",
 	"editor.defaultFormatter": "biomejs.biome",
 	"editor.codeActionsOnSave": {
+		// this might be too aggresive.the main issue was import sorting, there is an option for that instead. trying this for now.
 		"source.fixAll.biome": "explicit"
 	},
 	// I might be able to get rid of this. this is for tanstack router route gen file.
